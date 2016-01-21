@@ -17,6 +17,10 @@ module.exports = function(deployTarget) {
       secretAccessKey: process.env['AWS_SECRET_ACCESS_KEY'],
       bucket:          process.env['AWS_BUCKET'],
       region:          process.env['AWS_REGION']
+    },
+
+    'revision-data': {
+      type: 'git-commit'
     }
   };
 
