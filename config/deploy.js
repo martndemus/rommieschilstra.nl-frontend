@@ -9,7 +9,8 @@ module.exports = function(deployTarget) {
       secretAccessKey:  process.env['AWS_SECRET_ACCESS_KEY'],
       bucket:           process.env['AWS_BUCKET'],
       region:           process.env['AWS_REGION'],
-      activateOnDeploy: process.env['TRAVIS_BRANCH'] === 'master'
+      activateOnDeploy: process.env['TRAVIS_BRANCH'] === 'master',
+      allowOverwrite:   process.env['TRAVIS_BRANCH'] !== 'master'
     },
 
     's3': {
