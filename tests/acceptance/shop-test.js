@@ -1,33 +1,49 @@
-import { test } from 'qunit';
+import { skip, test } from 'qunit';
 import moduleForAcceptance from 'rommie-schilstra/tests/helpers/module-for-acceptance';
 
-moduleForAcceptance('Acceptance | shop');
+moduleForAcceptance('Acceptance | Shop');
 
-test('visiting /shop', function(assert) {
+test('Visiting /shop', function(assert) {
+  assert.expect(1);
   visit('/shop');
-
-  andThen(() => {
-    assert.equal(currentURL(), '/shop');
-  });
+  andThen(() => assert.equal(currentURL(), '/shop'));
 });
 
-test('shows thumbnails of shop items', function(assert) {
+test('Shows thumbnails of shop items', function(assert) {
   assert.expect(1);
   server.createList('item', 10);
+
   visit('/shop');
 
-  andThen(() => {
-    assert.equal(find('.item-thumbnail').length, 10);
-  });
+  andThen(() => assert.equal(find('.item-thumbnail').length, 10));
 });
 
-test('A thumbnail is a link to a item', function(assert) {
+test('Going to a single item', function(assert) {
   assert.expect(1);
-  let item = server.create('item', 1);
+  let { id } = server.create('item', 1);
+
   visit('/shop');
 
-  andThen(() => {
-    let { id } = item;
-    assert.equal(find(`a[href$="/shop/${id}"]`).length, 1);
-  });
+  andThen(() => click(`a[href$="/shop/${id}"]`));
+  andThen(() => assert.equal(currentURL(), `/shop/${id}`));
+});
+
+moduleForAcceptance('Acceptance | Shop | Item');
+
+test('Visiting an item', function(assert) {
+  assert.expect(1);
+  let { id } = server.create('item', 1);
+
+  visit(`/shop/${id}`);
+
+  andThen(() => assert.equal(currentURL(), `/shop/${id}`));
+});
+
+skip('It renders an item', function(assert) {
+  assert.expect(1);
+  let { id, title } = server.create('item', 1);
+
+  visit(`/shop/${id}`);
+
+  andThen(() => assert.equal(find(`:contains(${title})`).length, 1));
 });

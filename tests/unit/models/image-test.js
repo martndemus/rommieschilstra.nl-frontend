@@ -1,9 +1,8 @@
 import { moduleForModel, test } from 'ember-qunit';
 
-moduleForModel('item', 'Unit | Model | item', {
-  needs: [
-    'model:image'
-  ]
+moduleForModel('image', 'Unit | Model | image', {
+  // Specify the other units that are required for this test.
+  needs: []
 });
 
 test('it exists', function(assert) {

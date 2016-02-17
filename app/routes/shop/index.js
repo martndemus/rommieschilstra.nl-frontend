@@ -2,6 +2,8 @@ import Route from 'ember-route';
 import set from 'ember-metal/set';
 
 export default Route.extend({
+  titleToken: 'Shop',
+
   model() {
     return this.store.findAll('item');
   },

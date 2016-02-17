@@ -24,7 +24,7 @@ test('It adds a caption', function(assert) {
   this.set('item', { title, price });
   this.render(hbs`{{item-thumbnail item=item}}`);
 
-  assert.equal(this.$().text().trim(), `${title} €${price}`);
+  assert.equal(this.$().get(0).innerText.trim(), `${title} €${price}`);
 });
 
 test('It adds the item id to the element id', function(assert) {

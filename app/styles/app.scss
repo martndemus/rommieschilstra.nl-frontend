@@ -1,0 +1,21 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'proxima-nova', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+header, main {
+  margin: 0 auto;
+  max-width: 932px;
+}
+
+.page-title {
+  text-align: center;
+}
+
+@import 'components/header';
+@import 'components/item-thumbnail';
+@import 'components/item-list';

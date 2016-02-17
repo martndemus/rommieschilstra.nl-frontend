@@ -1,0 +1,8 @@
+<h2 class="page-title">Shop</h2>
+<div class="item-list">
+  {{#each items as |item|}}
+    {{#link-to 'shop.show' item}}
+      {{item-thumbnail item=item}}
+    {{/link-to}}
+  {{/each}}
+</div>
