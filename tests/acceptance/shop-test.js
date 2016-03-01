@@ -1,4 +1,5 @@
-import { skip, test } from 'qunit';
+import { test } from 'ember-qunit';
+import { skip } from 'qunit';
 import moduleForAcceptance from 'rommie-schilstra/tests/helpers/module-for-acceptance';
 
 moduleForAcceptance('Acceptance | Shop');

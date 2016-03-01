@@ -1,4 +1,5 @@
 <h2 class="item-details__title">{{item.title}}</h2>
+{{image-gallery images=item.images}}
 <div class="item-details__description">
   {{markdown-to-html
       markdown=item.description

@@ -1,0 +1,9 @@
+{{deferred-image class="image-gallery__selected" image=selectedImage}}
+<div class="image-gallery__list">
+  {{#each images as |image|}}
+      {{deferred-image
+          image=image
+          class="image-gallery__list__item"
+          click=(action (mut selectedImage) image)}}
+  {{/each}}
+</div>

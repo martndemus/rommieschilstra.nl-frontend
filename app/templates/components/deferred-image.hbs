@@ -1,0 +1,4 @@
+{{#deferred-content imagePromise as |d|}}
+  <img src={{image.imageUrl}} alt={{image.description}} />
+  {{#d.pending}}{{fa-icon "spinner" spin=true}}{{/d.pending}}
+{{/deferred-content}}

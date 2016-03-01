@@ -1,5 +1,5 @@
 <div class="item-thumbnail__img">
-  <img src={{item.imgThumbnail}} alt={{item.title}} />
+  {{deferred-image image=(hash imageUrl=item.imgThumbnail description=item.title)}}
 </div>
 <div class="item-thumbnail__caption">
   <span class="item-thumbnail__title">{{item.title}}</span>

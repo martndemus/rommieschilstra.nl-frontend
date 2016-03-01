@@ -1,12 +1,9 @@
 export default function(server) {
-  server.createList('item', 100);
+  let images = server.createList('image', 500);
 
-  /*
-    Seed your development database using your factories.
-    This data will not be loaded in your tests.
-
-    Make sure to define a factory for each model you want to create.
-  */
-
-  // server.createList('post', 10);
+  let items = [];
+  for (let i = 0; i < 100; i++) {
+    let itemImages = images.slice(i * 5, i * 5 + 5).map((image) => image.id);
+    items.push(server.create('item', { imageIds: itemImages }));
+  }
 }

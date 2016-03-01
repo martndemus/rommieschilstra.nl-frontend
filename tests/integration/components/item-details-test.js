@@ -19,3 +19,11 @@ test('It renders item details', function(assert) {
   assert.containsText(textContent, item.description);
   assert.containsText(textContent, item.price);
 });
+
+test('It renders an image gallery', function(assert) {
+  let item = server.create('item');
+  item.images = server.createList('image', 3);
+  this.set('item', item);
+  this.render(hbs`{{item-details item=item}}`);
+  assert.equal(this.$('img').length, 4);
+});

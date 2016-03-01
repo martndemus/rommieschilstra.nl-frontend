@@ -1,0 +1,19 @@
+.image-gallery {
+  &__selected {
+    width: 500px;
+    height: 500px;
+
+    img {
+      width: 500px;
+    }
+  }
+
+  &__list {
+   &__item {
+     display: inline-block;
+     height: 100px;
+     width: 100px;
+   }
+   img { width: 100px; }
+  }
+}
